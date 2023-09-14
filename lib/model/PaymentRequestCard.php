@@ -6,12 +6,14 @@
 
 namespace Cardpay\model;
 
-use \ArrayAccess;
 use \Cardpay\ObjectSerializer;
 
-class PaymentRequestCard implements ModelInterface, ArrayAccess
+class PaymentRequestCard implements ModelInterface
 {
     const DISCRIMINATOR = null;
+    const ACCT_TYPE__01 = '01';
+    const ACCT_TYPE__02 = '02';
+    const ACCT_TYPE__03 = '03';
 
     /**
       * The original name of the model.
@@ -151,10 +153,6 @@ class PaymentRequestCard implements ModelInterface, ArrayAccess
     {
         return self::$swaggerModelName;
     }
-
-    const ACCT_TYPE__01 = '01';
-    const ACCT_TYPE__02 = '02';
-    const ACCT_TYPE__03 = '03';
     
 
     
@@ -444,7 +442,7 @@ class PaymentRequestCard implements ModelInterface, ArrayAccess
      *
      * @return boolean
      */
-    public function offsetExists($offset)
+    public function offsetExists($offset): bool
     {
         return isset($this->container[$offset]);
     }
@@ -469,7 +467,7 @@ class PaymentRequestCard implements ModelInterface, ArrayAccess
      *
      * @return void
      */
-    public function offsetSet($offset, $value)
+    public function offsetSet($offset, $value): void
     {
         if (is_null($offset)) {
             $this->container[] = $value;
@@ -485,7 +483,7 @@ class PaymentRequestCard implements ModelInterface, ArrayAccess
      *
      * @return void
      */
-    public function offsetUnset($offset)
+    public function offsetUnset($offset): void
     {
         unset($this->container[$offset]);
     }
