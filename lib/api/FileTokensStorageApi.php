@@ -15,6 +15,7 @@ class FileTokensStorageApi implements TokensStorageApi
     const API_TOKENS_TMP_FILENAME_PREFIX = 'cardpay_apiv3_tokens_';
 
     private $apiTokensTempFilepath;
+    private $terminalCode;
 
     /**
      * FileTokensStorageApi constructor

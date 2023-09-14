@@ -6,10 +6,9 @@
 
 namespace Cardpay\model;
 
-use \ArrayAccess;
 use \Cardpay\ObjectSerializer;
 
-class ApiTokens implements ModelInterface, ArrayAccess
+class ApiTokens implements ModelInterface
 {
     const DISCRIMINATOR = null;
 
