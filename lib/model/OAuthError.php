@@ -279,7 +279,7 @@ class OAuthError implements ModelInterface, ArrayAccess
      *
      * @return mixed
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): mixed
     {
         return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
