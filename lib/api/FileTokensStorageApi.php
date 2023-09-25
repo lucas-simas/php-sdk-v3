@@ -23,7 +23,7 @@ class FileTokensStorageApi implements TokensStorageApi
      * @param $terminalCode
      * @throws ApiException
      */
-    public function __construct($host, $terminalCode)
+    public function __construct($host, $terminalCode, $customTempFolderPath = null)
     {
         $this->validateInputParams($terminalCode);
 
@@ -31,6 +31,9 @@ class FileTokensStorageApi implements TokensStorageApi
 
         $configuration = new Configuration($host);
         $tempFolderPath = $configuration->getTempFolderPath();
+        if( $customTempFolderPath ){
+            $tempFolderPath = $customTempFolderPath;
+        }
 
         $this->apiTokensTempFilepath = $tempFolderPath . DIRECTORY_SEPARATOR . self::API_TOKENS_TMP_FILENAME_PREFIX . $terminalCode;
     }
